@@ -223,15 +223,18 @@ class AsyncServer(base_server.BaseServer):
             # browsers only apply CORS controls to HTTP.
             origin = environ.get('HTTP_ORIGIN')
             if origin:
-                allowed_origins = self._cors_allowed_origins(environ)
-                if allowed_origins is not None and origin not in \
-                        allowed_origins:
-                    self._log_error_once(
-                        origin + ' is not an accepted origin.', 'bad-origin')
-                    return await self._make_response(
-                        self._bad_request(
-                            origin + ' is not an accepted origin.'),
-                        environ)
+                # IMPORTANT : all cors allowed without cors_allowed_origins = '*'
+                # allowed_origins = self._cors_allowed_origins(environ)
+                # if allowed_origins is not None and origin not in \
+                #         allowed_origins:
+                #     self._log_error_once(
+                #         origin + ' is not an accepted origin.', 'bad-origin')
+                #     return await self._make_response(
+                #         self._bad_request(
+                #             origin + ' is not an accepted origin.'),
+                #         environ)
+                
+                pass 
 
         method = environ['REQUEST_METHOD']
         query = urllib.parse.parse_qs(environ.get('QUERY_STRING', ''))
