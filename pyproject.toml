@@ -1,5 +1,5 @@
 [project]
-name = "python-engineio"
+name = "engineio-worstMev"
 version = "4.11.3.dev0"
 authors = [{name = "Miguel Grinberg", email = "miguel.grinberg@gmail.com"}]
 description = "Engine.IO server and client for Python"
